@@ -8,11 +8,11 @@ class TopicsController < ApplicationController
   end
   
   def create
-    # binding.pry
     @topic = current_user.topics.new(topic_params)
     
     if @topic.save
       redirect_to topics_path, success: '投稿に成功しました'
+      # binding.pry
     else
       flash.now[:danger] ="投稿に失敗しました"
       render :new
